@@ -2,6 +2,7 @@
 
 import argparse
 from datetime import date
+import sys
 
 import git
 
@@ -58,6 +59,8 @@ def main():
 
     tag_current_commit(git.Repo(opts.repo_path), json_version, opts.date)
 
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

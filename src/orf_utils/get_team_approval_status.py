@@ -119,10 +119,10 @@ def main():
     github_client = github.Github(opts.secret)
 
     if pr_has_appropriate_reviews(github_client, opts.org, opts.repo, opts.pull_request, opts.teams):
-        sys.exit(0)
+        return 0
 
-    sys.exit(1)
+    return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

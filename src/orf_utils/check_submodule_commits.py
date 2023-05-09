@@ -76,10 +76,10 @@ def main():
     opts = parse_args()
 
     if repo_has_valid_submodules(opts.org, git.Repo(opts.repo_path), github.Github(opts.secret)):
-        sys.exit(0)
+        return 0
 
-    sys.exit(1)
+    return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

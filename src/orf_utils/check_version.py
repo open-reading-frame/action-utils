@@ -3,6 +3,7 @@
 import argparse
 from fnmatch import fnmatch
 from pathlib import Path
+import sys
 
 import github
 
@@ -109,6 +110,8 @@ def main():
         if not next((c for c in pull.get_issue_comments() if c.body == msg), None):
             pull.create_issue_comment(msg)
 
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
