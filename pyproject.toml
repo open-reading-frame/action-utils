@@ -1,3 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orf_utils"
+description = "Utils for different actions within the open-reading-frame GitHub Organization"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "PyGithub",
+    "GitPython",
+    "ghapi",
+]
+dynamic = ["version"]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.scripts]
+check_submodule_commits = "orf_utils.check_submodule_commits:main"
+check_version = "orf_utils.check_version:main"
+configure_repo_settings = "orf_utils.configure_repo_settings:main"
+get_team_approval_status = "orf_utils.get_team_approval_status:main"
+tag_commit = "orf_utils.tag_commit:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
+[tool.setuptools.package-data]
+orf_utils = [
+    "py.typed",
+    "*.json",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "orf_utils.__version__"}
+
 [tool.black]
 line-length = 120
 skip-string-normalization = true
