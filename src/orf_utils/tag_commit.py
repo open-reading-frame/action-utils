@@ -52,6 +52,7 @@ def parse_args():
 
 
 def main():
+    """Main entrypoint"""
     opts = parse_args()
 
     with open(opts.json, "r", encoding="utf-8") as json_fh:
