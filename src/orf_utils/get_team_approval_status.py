@@ -54,7 +54,9 @@ def team_member_has_approved_pr(team: github.Team.Team, pull: github.PullRequest
     return False
 
 
-def pr_has_appropriate_reviews(client: github.MainClass.Github, org_str: str, repo: str, pr_num: int, team_names: list[str]) -> bool:
+def pr_has_appropriate_reviews(
+    client: github.MainClass.Github, org_str: str, repo: str, pr_num: int, team_names: list[str]
+) -> bool:
     """Given a repository, PR number, and list of teams, determine if the given PR has at least one approval from each
     of the listed teams
 

@@ -75,8 +75,13 @@ class GitErrorRaiser:
 class MockGitRepo(mock.Mock):
     """Mock of GitPython's Repo class"""
 
-    def __init__(self, remotes: list[MockGitRemote], submodules: list[MockGitSubmodule] = None,
-                 tags: list[MockGitTag] = None, latest_tag: MockGitTag = None):
+    def __init__(
+        self,
+        remotes: list[MockGitRemote],
+        submodules: list[MockGitSubmodule] = None,
+        tags: list[MockGitTag] = None,
+        latest_tag: MockGitTag = None,
+    ):
         super().__init__()
 
         self.remotes = MockIterableList(remotes)

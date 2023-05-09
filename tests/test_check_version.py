@@ -65,7 +65,7 @@ def fixture_gh_tags():
     return [
         pygh_utils.MockGithubTag("1.0.0-1", pygh_utils.MockGithubCommit("")),
         pygh_utils.MockGithubTag("1.0.0-2", pygh_utils.MockGithubCommit("")),
-        pygh_utils.MockGithubTag("1.1.0-1", pygh_utils.MockGithubCommit(""))
+        pygh_utils.MockGithubTag("1.1.0-1", pygh_utils.MockGithubCommit("")),
     ]
 
 
@@ -80,7 +80,7 @@ def fixture_fh_files():
         pygh_utils.MockGithubFile("file.py", ""),
         pygh_utils.MockGithubFile("src/entrypoint.py", ""),
         pygh_utils.MockGithubFile("docs/conf.py", ""),
-        pygh_utils.MockGithubFile("docs/subdir/file.py", "")
+        pygh_utils.MockGithubFile("docs/subdir/file.py", ""),
     ]
 
 

@@ -8,6 +8,7 @@ import github
 
 from orf_utils import common
 
+
 def submodule_is_valid(git_submodule: common.Submodule, github_repo: github.Repository.Repository) -> bool:
     """Determines if the given submodule is valid by looking through the git history for the default
     branch of the submodule

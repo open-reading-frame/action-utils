@@ -87,11 +87,9 @@ class MockGithubFile(mock.Mock):
 class MockGithubPull(mock.Mock):
     """Mock of PyGithub's PullRequest class"""
 
-    def __init__(self,
-            pull_num: int,
-            reviews: list[MockGithubReview] = None,
-            files: list[MockGithubFile] = None
-        ) -> None:
+    def __init__(
+        self, pull_num: int, reviews: list[MockGithubReview] = None, files: list[MockGithubFile] = None
+    ) -> None:
         super().__init__()
 
         self.num = pull_num
@@ -109,13 +107,13 @@ class MockGithubRepo(mock.Mock):
     """Mock of PyGithub's Repository class"""
 
     def __init__(
-            self,
-            name: str,
-            default_branch: str = "main",
-            commits: DefaultDict[str, list[MockGithubCommit]] = None,
-            pulls: dict[int, MockGithubPull] = None,
-            tags: list[MockGithubTag] = None
-        ) -> None:
+        self,
+        name: str,
+        default_branch: str = "main",
+        commits: DefaultDict[str, list[MockGithubCommit]] = None,
+        pulls: dict[int, MockGithubPull] = None,
+        tags: list[MockGithubTag] = None,
+    ) -> None:
         super().__init__()
 
         self.name = name
@@ -147,11 +145,8 @@ class MockGithubOrg(mock.Mock):
     """Mock of PyGithub's Organization class"""
 
     def __init__(
-            self,
-            name: str,
-            teams: dict[str, MockGithubTeam] = None,
-            repos: dict[str, MockGithubRepo] = None
-        ) -> None:
+        self, name: str, teams: dict[str, MockGithubTeam] = None, repos: dict[str, MockGithubRepo] = None
+    ) -> None:
         super().__init__()
 
         self.name = name

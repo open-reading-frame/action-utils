@@ -24,7 +24,6 @@ def _match(file_name: str, to_match: str) -> bool:
     return fnmatch(file_name, to_match)
 
 
-
 def file_is_relevant(file_name: str, includes: list[str] = None, excludes: list[str] = None) -> bool:
     """Helper method that determines if a given file name is relevant for the check
 
@@ -43,12 +42,12 @@ def file_is_relevant(file_name: str, includes: list[str] = None, excludes: list[
 
 
 def missing_version_bump(
-        repo: github.Repository.Repository,
-        pull: github.PullRequest.PullRequest,
-        version: common.VersionTag,
-        includes: list[str] = None,
-        excludes: list[str] = None
-    ) -> bool:
+    repo: github.Repository.Repository,
+    pull: github.PullRequest.PullRequest,
+    version: common.VersionTag,
+    includes: list[str] = None,
+    excludes: list[str] = None,
+) -> bool:
     """Determines if a pull request should have incurred a version bump, and if so asserts that the version was bumped
 
     :param repo: PyGithub Repository instance
