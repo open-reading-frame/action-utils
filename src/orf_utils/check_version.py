@@ -2,7 +2,6 @@
 
 import argparse
 from fnmatch import fnmatch
-import json
 from pathlib import Path
 
 import github
@@ -98,10 +97,7 @@ def main():
     """Main entrypoint"""
     opts = parse_args()
 
-    with open(opts.json, "r", encoding="utf-8") as json_fh:
-        json_content = json.load(json_fh)
-
-    json_version = common.VersionTag(f"{json_content['version']}-1")
+    json_version = common.VersionTag.from_json(opts.json)
 
     client = github.Github(opts.secret)
     org = common.get_organization(client, opts.org)

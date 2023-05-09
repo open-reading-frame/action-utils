@@ -2,7 +2,6 @@
 
 import argparse
 from datetime import date
-import json
 
 import git
 
@@ -55,10 +54,7 @@ def main():
     """Main entrypoint"""
     opts = parse_args()
 
-    with open(opts.json, "r", encoding="utf-8") as json_fh:
-        json_content = json.load(json_fh)
-
-    json_version = common.VersionTag(f"{json_content['version']}-1")
+    json_version = common.VersionTag.from_json(opts.json)
 
     tag_current_commit(git.Repo(opts.repo_path), json_version, opts.date)
 

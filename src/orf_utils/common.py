@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from functools import total_ordering
+import json
 import re
 
 # For type annotation simplification other modules may import Repo and Submodule from this module
@@ -86,6 +87,18 @@ class VersionTag:
 
         # If we got this far then major, minor, and patch are identical
         return False
+
+    @classmethod
+    def from_json(cls, json_file: str):
+        """Create an instance from a JSON file. Version is expected to live in the root object under 'version'
+
+        :param json_file: Path to JSON file
+        :return: Instantiated VersionTag
+        """
+        with open(json_file, "r", encoding="utf-8") as json_fh:
+            json_content = json.load(json_fh)
+
+        return cls(f"{json_content['version']}-1")
 
     @property
     def tag(self) -> str:
