@@ -16,7 +16,7 @@ jobs:
       - name: Run pytest
         uses: open-reading-frame/pytest-action@main
         with:
-          requirements-txt: action_utils/tests/requirements.txt
+          requirements-txt: requirements-test.txt
   increment-version:
     name: Increment Version
     runs-on: ubuntu-latest
@@ -35,4 +35,4 @@ jobs:
       - name: Run the check-version action
         uses: open-reading-frame/check-version-action@main
         with:
-          include-paths: 'action.yml'
+          include-paths: 'src/ pyproject.toml'
